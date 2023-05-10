@@ -54,7 +54,10 @@ if(global.isMoving == true || timer == 0)
         // Trigger level complete event
 		
         show_debug_message("Level complete!");
-		instance_create_layer(0,0,"Text",oNextLevel);
+		alarm[0] = -1;
+		room_speed = 1;
+		alarm[1] = room_speed * 1;
+		room_goto(LevelCleared);
     }
 	global.isMoving = false;
 	/*if(global.enemyCount >52){
@@ -64,8 +67,10 @@ if(global.isMoving == true || timer == 0)
 		
 	}*/
 	if(global.points <= 5){
-	show_debug_message("Game Over");
-	instance_create_layer(0,0,"Text",oGameOver)
+		alarm[0] = -1;
+		room_speed = 1;
+		alarm[1] = room_speed * 1;
+    room_goto(GameOver);
 	}
 	
 }
