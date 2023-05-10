@@ -19,10 +19,12 @@
   "ResourceOrderSettings": [
     {"name":"sEnemy","order":1,"path":"sprites/sEnemy/sEnemy.yy",},
     {"name":"oNextLevel","order":3,"path":"objects/oNextLevel/oNextLevel.yy",},
-    {"name":"drawCircleOnHover","order":1,"path":"scripts/drawCircleOnHover/drawCircleOnHover.yy",},
     {"name":"oEnemy","order":1,"path":"objects/oEnemy/oEnemy.yy",},
     {"name":"oGameOver","order":4,"path":"objects/oGameOver/oGameOver.yy",},
     {"name":"sWall","order":2,"path":"sprites/sWall/sWall.yy",},
+    {"name":"Room2","order":1,"path":"rooms/Room2/Room2.yy",},
+    {"name":"Score","order":1,"path":"fonts/Score/Score.yy",},
+    {"name":"oScore","order":5,"path":"objects/oScore/oScore.yy",},
     {"name":"sTile","order":3,"path":"sprites/sTile/sTile.yy",},
     {"name":"oWall","order":2,"path":"objects/oWall/oWall.yy",},
   ],
