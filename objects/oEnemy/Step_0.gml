@@ -16,12 +16,14 @@ if(global.isMoving == true || timer == 0)
 				can_create_count++;
 				global.points--;
 				
+				
 				}
            // Create a new oEnemy instance to the right
 		   if(!place_meeting(x-64,y,oEnemy) and !place_meeting(x-64,y,oWall) and !place_meeting(x-64,y,oPlayer) and can_create){
 			   instance_create_layer(x-64,y,"Enemy",oEnemy); 
 			   can_create_count++;
 			   global.points--;
+			  
 			  
 			   }
             
@@ -30,6 +32,7 @@ if(global.isMoving == true || timer == 0)
 				instance_create_layer(x,y+64,"Enemy",oEnemy);
 				can_create_count++;
 				global.points--;
+				
 				}
             
 			// Create a new oEnemy instance below
@@ -37,27 +40,39 @@ if(global.isMoving == true || timer == 0)
 				instance_create_layer(x,y-64,"Enemy",oEnemy);
 				can_create_count++;
 				global.points--;
+				
 				}
 			 // Create a new oEnemy instance above
 			 timer=600;
+			 global.timeLeft = floor(timer/60) ;
         }
 		else {
-            can_create_count--; // Decrement count of oEnemy instances that can create new instances
+            can_create_count--;
+			// Decrement count of oEnemy instances that can create new instances
+			
         }
 		 global.enemyCount++;
 		
-		 
+		
     }
 
 	 // Check for level completion
-    if (can_create_count == 0) {
+    if (can_create_count == 0 && room !=StartScreen) {
+		var target = Level_1;
+		if(room = Level_1){
+			target = LevelCleared1}
+			else if (room = Level_2)
+			{
+				target = LevelCleared2
+			}
+			TransitionStart(target,sqFadeOut,sqFadein);
+			
         // Trigger level complete event
+        //show_debug_message("Level complete!");	
+		//if(room_get_name(room)== "Level_1"){
+		//room_goto(LevelCleared1);}
+		//else{room_goto(LevelCleared2);}
 		
-        show_debug_message("Level complete!");
-		alarm[0] = -1;
-		room_speed = 1;
-		alarm[1] = room_speed * 1;
-		room_goto(LevelCleared);
     }
 	global.isMoving = false;
 	/*if(global.enemyCount >52){
@@ -66,16 +81,15 @@ if(global.isMoving == true || timer == 0)
 		
 		
 	}*/
-	if(global.points <= 5){
-		alarm[0] = -1;
-		room_speed = 1;
-		alarm[1] = room_speed * 1;
-    room_goto(GameOver);
+	if(global.points <= 10){
+		TransitionStart(GameOver,sqFadeOut,sqFadein);
+    //room_goto(GameOver);
 	}
 	
 }
 else {
 		timer --;
+		global.timeLeft = floor(timer/60);
 	}
 with(oEnemy)
 {

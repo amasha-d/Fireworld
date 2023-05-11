@@ -1,0 +1,1 @@
+global.timeLeft = 0;
