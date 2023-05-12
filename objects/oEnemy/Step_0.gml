@@ -1,5 +1,5 @@
 // Set alarm[0] to 60 steps (1 second)
-
+global.timeLeft = floor(timer/60);
 var can_create_count = 0;
 
 if(global.isMoving == true || timer == 0)
@@ -15,6 +15,7 @@ if(global.isMoving == true || timer == 0)
 				instance_create_layer(x+64,y,"Enemy",oEnemy);
 				can_create_count++;
 				global.points--;
+				audio_play_sound(mFire, true, 0);
 				
 				
 				}
@@ -23,7 +24,7 @@ if(global.isMoving == true || timer == 0)
 			   instance_create_layer(x-64,y,"Enemy",oEnemy); 
 			   can_create_count++;
 			   global.points--;
-			  
+			  audio_play_sound(mFire, true, 0);
 			  
 			   }
             
@@ -32,7 +33,7 @@ if(global.isMoving == true || timer == 0)
 				instance_create_layer(x,y+64,"Enemy",oEnemy);
 				can_create_count++;
 				global.points--;
-				
+				audio_play_sound(mFire, true, 0);
 				}
             
 			// Create a new oEnemy instance below
@@ -40,7 +41,7 @@ if(global.isMoving == true || timer == 0)
 				instance_create_layer(x,y-64,"Enemy",oEnemy);
 				can_create_count++;
 				global.points--;
-				
+				audio_play_sound(mFire, true, 0);
 				}
 			 // Create a new oEnemy instance above
 			 timer=600;
@@ -58,20 +59,13 @@ if(global.isMoving == true || timer == 0)
 
 	 // Check for level completion
     if (can_create_count == 0 && room !=StartScreen) {
-		var target = Level_1;
-		if(room = Level_1){
-			target = LevelCleared1}
-			else if (room = Level_2)
-			{
-				target = LevelCleared2
-			}
-			TransitionStart(target,sqFadeOut,sqFadein);
-			
+		
         // Trigger level complete event
         //show_debug_message("Level complete!");	
-		//if(room_get_name(room)== "Level_1"){
-		//room_goto(LevelCleared1);}
-		//else{room_goto(LevelCleared2);}
+		if(room_get_name(room)== "Level_1"){
+		room_goto(LevelCleared1);}
+		else{room_goto(LevelCleared2);}
+		audio_stop_sound(mFire);
 		
     }
 	global.isMoving = false;
@@ -83,6 +77,7 @@ if(global.isMoving == true || timer == 0)
 	}*/
 	if(global.points <= 10){
 		TransitionStart(GameOver,sqFadeOut,sqFadein);
+		audio_stop_sound(mFire);
     //room_goto(GameOver);
 	}
 	

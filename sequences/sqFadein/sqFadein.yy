@@ -24,7 +24,7 @@
     "Keyframes": [
       {"resourceType":"Keyframe<MomentsEventKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"MomentsEventKeyframe","resourceVersion":"1.0","Events":[
               "TransitionFinished",
-            ],},},"Disabled":false,"id":"3d67a2fd-6eda-4185-ab19-9a73fd39fdb6","IsCreationKey":false,"Key":60.0,"Length":1.0,"Stretch":false,},
+            ],},},"Disabled":false,"id":"4852b5a5-b017-4ec3-a7ca-ebff417ce1be","IsCreationKey":false,"Key":59.9999,"Length":1.0,"Stretch":false,},
     ],
   },
   "parent": {
@@ -60,7 +60,10 @@
             ],},"modifiers":[],"trackColour":4293063240,"tracks":[],"traits":0,},
       ],"traits":0,},
   ],
-  "visibleRange": null,
+  "visibleRange": {
+    "x": 0.0,
+    "y": 59.9999,
+  },
   "volume": 1.0,
   "xorigin": -540,
   "yorigin": -360,
